@@ -1,0 +1,189 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Portfolio";
+}
+
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-4 text-center text-lg-start">
+                <div class="profile" aria-label="Profile photo">
+                    <img
+                        src="~/PICTURE/job.jpg"
+                        alt="Joeb Englatera"
+                        class="profile-img" />
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="d-flex flex-column gap-3">
+                    <div>
+                        <h1 class="display-5 fw-bold mb-1">Joeb Englatera</h1>
+                        <p class="lead mb-2 muted">BSIT Fresh Graduate | Aspiring Web Developer</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge-pill">
+                                <span class="fw-semibold">Location:</span>
+                                <span class="small-muted ms-1">Philippines</span>
+                            </span>
+                            <span class="badge-pill">
+                                <span class="fw-semibold">Focus:</span>
+                                <span class="small-muted ms-1">ASP.NET Core / Web Apps</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-sm-row gap-2">
+                        <a class="btn btn-primary btn-lg" asp-area="" asp-page="/Privacy">
+                            View Resume
+                        </a>
+                        <a class="btn btn-outline-light btn-lg" href="#projects">
+                            See Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="card-glass card-2">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-7">
+                    <p class="mb-2">
+                        I’m a BSIT fresh graduate with a strong interest in building clean, user-friendly web applications.
+                        I enjoy turning ideas into working features using modern web technologies and good coding practices.
+                    </p>
+                    <p class="muted mb-0">
+                        This portfolio is a simple static page designed to highlight skills, potential projects, and your resume.
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card-glass" style="background: rgba(255,255,255,0.05);">
+                        <div class="fw-semibold mb-2">Core Tools</div>
+                        <div class="skill-tags">
+                            <span class="chip">C#</span>
+                            <span class="chip">ASP.NET Core</span>
+                            <span class="chip">SQL</span>
+                            <span class="chip">HTML</span>
+                            <span class="chip">CSS</span>
+                            <span class="chip">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-glass">
+                    <div class="fw-semibold mb-2">Frontend</div>
+                    <div class="skill-tags">
+                        <span class="chip">HTML5</span>
+                        <span class="chip">CSS3</span>
+                        <span class="chip">Bootstrap</span>
+                        <span class="chip">Responsive UI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-glass">
+                    <div class="fw-semibold mb-2">Backend</div>
+                    <div class="skill-tags">
+                        <span class="chip">C#</span>
+                        <span class="chip">ASP.NET Core</span>
+                        <span class="chip">Razor Pages</span>
+                        <span class="chip">REST basics</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-glass">
+                    <div class="fw-semibold mb-2">Data & Tools</div>
+                    <div class="skill-tags">
+                        <span class="chip">SQL</span>
+                        <span class="chip">Entity Concepts</span>
+                        <span class="chip">Git/GitHub</span>
+                        <span class="chip">Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="projects">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card">
+                    <div class="project-title">Student Management System</div>
+                    <p class="muted mb-3">
+                        Manage student records with a clean interface and basic CRUD operations.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="chip">ASP.NET Core</span>
+                        <span class="chip">SQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card">
+                    <div class="project-title">Admission/Enrollment Web App</div>
+                    <p class="muted mb-3">
+                        A user-friendly enrollment flow with validation and structured pages.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="chip">Razor Pages</span>
+                        <span class="chip">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-card">
+                    <div class="project-title">Portfolio Website (This Page)</div>
+                    <p class="muted mb-3">
+                        Static portfolio layout with a resume preview and a print-friendly resume design.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="chip">HTML/CSS</span>
+                        <span class="chip">Design UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="card-glass card-2">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                    <div class="fw-semibold mb-2">Let’s connect</div>
+                    <div class="muted">
+                        Email: <a href="mailto:joebenglatera@example.com" class="text-decoration-none">joebenglatera@example.com</a>
+                        <br />
+                        Location: Philippines
+                    </div>
+                </div>
+                <div class="col-lg-5 text-lg-end">
+                    <a class="btn btn-outline-light btn-lg" asp-area="" asp-page="/Privacy">
+                        Resume (Print / Save as PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/site.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background: rgba(255,255,255,0.04);">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="./">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+          aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="./#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="./#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="./resume/">Resume</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-4 text-center text-lg-start">
+          <div class="profile" aria-label="Profile photo">
+            <img src="./PICTURE/profile.svg" alt="Joeb Englatera" class="profile-img" />
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="d-flex flex-column gap-3">
+            <div>
+              <h1 class="display-5 fw-bold mb-1">Joeb Englatera</h1>
+              <p class="lead mb-2 muted">BSIT Fresh Graduate | Aspiring Web Developer</p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge-pill">
+                  <span class="fw-semibold">Location:</span>
+                  <span class="small-muted ms-1">Philippines</span>
+                </span>
+                <span class="badge-pill">
+                  <span class="fw-semibold">Focus:</span>
+                  <span class="small-muted ms-1">Web Apps</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-2">
+              <a class="btn btn-primary btn-lg" href="./resume/">View Resume</a>
+              <a class="btn btn-outline-light btn-lg" href="./#projects">See Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="card-glass card-2">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7">
+            <p class="mb-2">
+              I’m a BSIT fresh graduate with a strong interest in building clean, user-friendly web applications.
+              I enjoy turning ideas into working features using modern web technologies and good coding practices.
+            </p>
+            <p class="muted mb-0">
+              This portfolio is a simple static site you can deploy on GitHub Pages.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <div class="card-glass" style="background: rgba(255,255,255,0.05);">
+              <div class="fw-semibold mb-2">Core Tools</div>
+              <div class="skill-tags">
+                <span class="chip">C#</span>
+                <span class="chip">ASP.NET Core</span>
+                <span class="chip">SQL</span>
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="card-glass">
+            <div class="fw-semibold mb-2">Frontend</div>
+            <div class="skill-tags">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Bootstrap</span>
+              <span class="chip">Responsive UI</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-glass">
+            <div class="fw-semibold mb-2">Backend</div>
+            <div class="skill-tags">
+              <span class="chip">C#</span>
+              <span class="chip">ASP.NET Core</span>
+              <span class="chip">Razor Pages</span>
+              <span class="chip">REST basics</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card-glass">
+            <div class="fw-semibold mb-2">Data & Tools</div>
+            <div class="skill-tags">
+              <span class="chip">SQL</span>
+              <span class="chip">Git/GitHub</span>
+              <span class="chip">Debugging</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-title">Student Management System</div>
+            <p class="muted mb-3">Manage student records with a clean interface and basic CRUD operations.</p>
+            <div class="d-flex gap-2 flex-wrap">
+              <span class="chip">ASP.NET Core</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-title">Admission/Enrollment Web App</div>
+            <p class="muted mb-3">A user-friendly enrollment flow with validation and structured pages.</p>
+            <div class="d-flex gap-2 flex-wrap">
+              <span class="chip">Razor Pages</span>
+              <span class="chip">Bootstrap</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-title">Portfolio Website (This Site)</div>
+            <p class="muted mb-3">Static portfolio layout with a resume preview and print-friendly resume design.</p>
+            <div class="d-flex gap-2 flex-wrap">
+              <span class="chip">HTML/CSS</span>
+              <span class="chip">Design UI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="card-glass card-2">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="fw-semibold mb-2">Let’s connect</div>
+            <div class="muted">
+              Email:
+              <a href="mailto:joebenglatera@example.com" class="text-decoration-none">joebenglatera@example.com</a>
+              <br />
+              Location: Philippines
+            </div>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a class="btn btn-outline-light btn-lg" href="./resume/">Resume (Print / Save as PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="chatbot">
+    <div class="container">
+      <h2 class="section-title">Chatbot (Flowise)</h2>
+      <div class="card-glass card-2">
+        <div class="row g-3 align-items-end">
+          <div class="col-lg-4">
+            <label class="form-label small-muted mb-1" for="flowiseBaseUrl">Flowise base URL</label>
+            <input id="flowiseBaseUrl" class="form-control" placeholder="https://cloud.flowiseai.com" />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label small-muted mb-1" for="chatflowId">Chatflow ID</label>
+            <input id="chatflowId" class="form-control" placeholder="your-chatflow-id" />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label small-muted mb-1" for="question">Message</label>
+            <input id="question" class="form-control" placeholder="Type your message..." />
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-3 flex-wrap">
+          <button id="sendBtn" class="btn btn-primary">Send</button>
+          <button id="clearBtn" class="btn btn-outline-light">Clear</button>
+          <div class="small-muted align-self-center">
+            Works only if your Flowise endpoint is public and allows browser requests (CORS).
+          </div>
+        </div>
+
+        <pre id="chatOutput" class="mt-3 mb-0 muted" style="white-space: pre-wrap;"></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-top footer text-muted" style="border-color: rgba(255,255,255,0.08) !important;">
+    <div class="container py-3 small-muted">
+      &copy; 2026 - Portfolio
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./js/site.js"></script>
+  <script src="./js/static-chat.js"></script>
+</body>
+</html>

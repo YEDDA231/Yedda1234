@@ -1,29 +1,18 @@
+<script>
 (function () {
   const chatFab = document.getElementById("chatFab");
   const chatPanel = document.getElementById("chatPanel");
   const chatClose = document.getElementById("chatClose");
   const chatMessages = document.getElementById("chatMessages");
   const chatQuestion = document.getElementById("chatQuestion");
-  const topKEl = document.getElementById("topK");
-  const googleKeyEl = document.getElementById("googleGenerativeAPIKey");
-  const modelNameEl = document.getElementById("modelName");
-  const tasktypeEl = document.getElementById("tasktype");
   const sendBtn = document.getElementById("sendBtn");
 
-  if (!chatFab || !chatPanel || !chatClose || !chatMessages || !chatQuestion || !topKEl || !googleKeyEl || !modelNameEl || !tasktypeEl || !sendBtn) return;
-
-  chatFab.addEventListener("click", () => {
-    chatPanel.classList.add("open");
-    chatQuestion.focus();
-  });
-
-  chatClose.addEventListener("click", () => {
-    chatPanel.classList.remove("open");
-  });
+  chatFab.onclick = () => chatPanel.classList.toggle("open");
+  chatClose.onclick = () => chatPanel.classList.remove("open");
 
   function appendBubble(text, role) {
     const el = document.createElement("div");
-    el.className = `chat-bubble ${role === "user" ? "chat-bubble-user" : "chat-bubble-bot"}`;
+    el.className = "chat-bubble " + (role === "user" ? "chat-bubble-user" : "chat-bubble-bot");
     el.textContent = text;
     chatMessages.appendChild(el);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -33,39 +22,35 @@
     const question = chatQuestion.value.trim();
     if (!question) return;
 
-    const topK = Number(topKEl.value || 1);
-    const googleGenerativeAPIKey = googleKeyEl.value.trim();
-    const modelName = modelNameEl.value.trim();
-    const tasktype = tasktypeEl.value.trim();
-
     appendBubble(question, "user");
     chatQuestion.value = "";
     sendBtn.disabled = true;
 
     try {
-      const payload = {
-        question,
-        overrideConfig: {
-          topK,
-          googleGenerativeAPIKey,
-          modelName,
-          tasktype
-        }
-      };
-      const res = await window.flowiseUpsert(payload);
-      const botText = res?.text ?? res?.answer ?? res?.message ?? "Request sent successfully.";
+      const res = await fetch("https://cloud.flowiseai.com/api/v1/prediction/https://cloud.flowiseai.com/api/v1/vector/upsert/06b70cbe-3e62-4cf4-8e33-9d74263c3edd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer AIzaSyA4g0GPwc5Bei1dwmk1bxiexLkATLP9p1o"
+        },
+        body: JSON.stringify({ question })
+      });
+
+      const data = await res.json();
+      const botText = data?.text || data?.answer || "No response";
+
       appendBubble(botText, "bot");
-    } catch (e) {
-      appendBubble(`Error: ${e?.message || String(e)}`, "bot");
+
+    } catch (err) {
+      appendBubble("Error: " + err.message, "bot");
     } finally {
       sendBtn.disabled = false;
-      chatQuestion.focus();
     }
   }
 
-  sendBtn.addEventListener("click", send);
-  chatQuestion.addEventListener("keydown", (e) => {
+  sendBtn.onclick = send;
+  chatQuestion.addEventListener("keydown", e => {
     if (e.key === "Enter") send();
   });
 })();
-
+</script>

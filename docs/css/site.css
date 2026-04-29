@@ -228,6 +228,55 @@ html, body {
   font-size: 0.95rem;
 }
 
+/* Floating chatbot */
+.chat-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2000;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.chat-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 78px;
+  z-index: 2000;
+  width: min(360px, calc(100vw - 30px));
+  max-height: 72vh;
+  overflow: auto;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(10, 16, 32, 0.95);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+  display: none;
+}
+
+.chat-panel.open {
+  display: block;
+}
+
+.chat-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-output {
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  max-height: 180px;
+  overflow: auto;
+}
+
 /* Print Resume */
 .no-print {
   display: block;
@@ -240,6 +289,10 @@ html, body {
   }
 
   header, footer, nav, .no-print {
+    display: none !important;
+  }
+
+  .chat-fab, .chat-panel {
     display: none !important;
   }
 

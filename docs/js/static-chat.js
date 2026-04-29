@@ -1,4 +1,7 @@
 (function () {
+  const chatFab = document.getElementById("chatFab");
+  const chatPanel = document.getElementById("chatPanel");
+  const chatClose = document.getElementById("chatClose");
   const topKEl = document.getElementById("topK");
   const googleKeyEl = document.getElementById("googleGenerativeAPIKey");
   const modelNameEl = document.getElementById("modelName");
@@ -7,7 +10,16 @@
   const clearBtn = document.getElementById("clearBtn");
   const out = document.getElementById("chatOutput");
 
-  if (!topKEl || !googleKeyEl || !modelNameEl || !tasktypeEl || !sendBtn || !clearBtn || !out) return;
+  if (!chatFab || !chatPanel || !chatClose || !topKEl || !googleKeyEl || !modelNameEl || !tasktypeEl || !sendBtn || !clearBtn || !out) return;
+
+  chatFab.addEventListener("click", () => {
+    chatPanel.classList.add("open");
+    topKEl.focus();
+  });
+
+  chatClose.addEventListener("click", () => {
+    chatPanel.classList.remove("open");
+  });
 
   function append(line) {
     out.textContent = (out.textContent ? out.textContent + "\n" : "") + line;

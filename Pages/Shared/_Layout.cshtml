@@ -10,6 +10,104 @@
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
 </head>
 <body>
+<!-- CHAT BUTTON -->
+<div id="chatFab">💬</div>
+
+<!-- CHAT PANEL -->
+<div id="chatPanel">
+  <div id="chatHeader">
+    <span>Chatbot</span>
+    <button id="chatClose">✖</button>
+  </div>
+
+  <div id="chatMessages"></div>
+
+  <div id="chatInput">
+    <input id="chatQuestion" placeholder="Ask me..." />
+    <button id="sendBtn">Send</button>
+  </div>
+</div>
+
+<style>
+#chatFab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0d6efd;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#chatPanel {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: white;
+  display: none;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+#chatPanel.open { display: flex; }
+
+.chat-bubble-user {
+  background: blue;
+  color: white;
+  padding: 5px;
+}
+
+.chat-bubble-bot {
+  background: #eee;
+  padding: 5px;
+}
+</style>
+
+<script>
+(function () {
+  const chatFab = document.getElementById("chatFab");
+  const chatPanel = document.getElementById("chatPanel");
+  const chatClose = document.getElementById("chatClose");
+  const chatMessages = document.getElementById("chatMessages");
+  const chatQuestion = document.getElementById("chatQuestion");
+  const sendBtn = document.getElementById("sendBtn");
+
+  chatFab.onclick = () => chatPanel.classList.toggle("open");
+  chatClose.onclick = () => chatPanel.classList.remove("open");
+
+  function appendBubble(text, role) {
+    const el = document.createElement("div");
+    el.className = role === "user" ? "chat-bubble-user" : "chat-bubble-bot";
+    el.textContent = text;
+    chatMessages.appendChild(el);
+  }
+
+  async function send() {
+    const question = chatQuestion.value.trim();
+    if (!question) return;
+
+    appendBubble(question, "user");
+    chatQuestion.value = "";
+
+    const res = await fetch("https://cloud.flowiseai.com/api/v1/prediction/https://cloud.flowiseai.com/api/v1/vector/upsert/06b70cbe-3e62-4cf4-8e33-9d74263c3edd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer AIzaSyA4g0GPwc5Bei1dwmk1bxiexLkATLP9p1o"
+      },
+      body: JSON.stringify({ question })
+    });
+
+    const data = await res.json();
+    appendBubble(data.text || "No response", "bot");
+  }
+
+  sendBtn.onclick = send;
+})();
+</script>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -49,4 +147,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

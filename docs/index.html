@@ -206,16 +206,20 @@
       <div class="card-glass card-2">
         <div class="row g-3 align-items-end">
           <div class="col-lg-4">
-            <label class="form-label small-muted mb-1" for="flowiseBaseUrl">Flowise base URL</label>
-            <input id="flowiseBaseUrl" class="form-control" placeholder="https://cloud.flowiseai.com" />
+            <label class="form-label small-muted mb-1" for="topK">topK</label>
+            <input id="topK" class="form-control" type="number" value="1" min="1" />
           </div>
           <div class="col-lg-4">
-            <label class="form-label small-muted mb-1" for="chatflowId">Chatflow ID</label>
-            <input id="chatflowId" class="form-control" placeholder="your-chatflow-id" />
+            <label class="form-label small-muted mb-1" for="googleGenerativeAPIKey">googleGenerativeAPIKey</label>
+            <input id="googleGenerativeAPIKey" class="form-control" placeholder="example" />
           </div>
           <div class="col-lg-4">
-            <label class="form-label small-muted mb-1" for="question">Message</label>
-            <input id="question" class="form-control" placeholder="Type your message..." />
+            <label class="form-label small-muted mb-1" for="modelName">modelName</label>
+            <input id="modelName" class="form-control" placeholder="example" />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label small-muted mb-1" for="tasktype">tasktype</label>
+            <input id="tasktype" class="form-control" placeholder="example" />
           </div>
         </div>
 
@@ -223,7 +227,7 @@
           <button id="sendBtn" class="btn btn-primary">Send</button>
           <button id="clearBtn" class="btn btn-outline-light">Clear</button>
           <div class="small-muted align-self-center">
-            Works only if your Flowise endpoint is public and allows browser requests (CORS).
+            Uses: https://cloud.flowiseai.com/api/v1/vector/upsert/06b70cbe-3e62-4cf4-8e33-9d74263c3edd
           </div>
         </div>
 

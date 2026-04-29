@@ -29,8 +29,10 @@ If your Flowise setup requires a secret/API key, do **not** put it in JavaScript
 
 In the static site, open the **Chatbot** section and enter:
 
-- Flowise base URL (example: `https://cloud.flowiseai.com`)
-- Chatflow ID
+- `topK`
+- `googleGenerativeAPIKey`
+- `modelName`
+- `tasktype`
 
 ## Run the ASP.NET app locally
 

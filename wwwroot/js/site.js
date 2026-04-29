@@ -1,5 +1,5 @@
-// Site JS (no secrets here).
-// Note: GitHub Pages is static hosting; never ship private API keys to the browser.
+// Site JS helper.
+const FLOWISE_UPSERT_API_URL = "https://cloud.flowiseai.com/api/v1/vector/upsert/06b70cbe-3e62-4cf4-8e33-9d74263c3edd";
 
 async function postJson(url, body, headers = {}) {
     const response = await fetch(url, {
@@ -19,14 +19,9 @@ async function postJson(url, body, headers = {}) {
     }
 }
 
-// Optional Flowise helper (safe only for public/no-key chatflows).
-// Usage: window.flowisePredict({ baseUrl, chatflowId, question })
-window.flowisePredict = async function flowisePredict({ baseUrl, chatflowId, question }) {
-    if (!baseUrl || !chatflowId) throw new Error("Missing baseUrl/chatflowId");
-    if (!question) throw new Error("Missing question");
-
-    // Many Flowise deployments expose a prediction endpoint like:
-    //   POST {baseUrl}/api/v1/prediction/{chatflowId}
-    const url = `${baseUrl.replace(/\/$/, "")}/api/v1/prediction/${encodeURIComponent(chatflowId)}`;
-    return await postJson(url, { question });
+// Flowise upsert helper based on your Python sample.
+// Usage: window.flowiseUpsert({ overrideConfig: { ... } })
+window.flowiseUpsert = async function flowiseUpsert(payload) {
+    if (!payload || typeof payload !== "object") throw new Error("Missing payload");
+    return await postJson(FLOWISE_UPSERT_API_URL, payload);
 };
